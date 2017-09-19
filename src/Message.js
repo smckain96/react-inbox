@@ -26,7 +26,7 @@ const Message = ({email}) => {
         <div className="col-xs-1">
         <div className="row">
         <div className="col-xs-2" checked={this.checkHandler}>
-          {selected ? <input type="checkbox" checked/> : <input type="checkbox">}/>}
+          {selected ? <input type="checkbox" checked/> : <input type="checkbox"/>}/>}
 
       </div>
       <div className="col-xs-2">

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Messages from './Messages';
 import Toolbar from './Toolbar';
@@ -89,11 +88,24 @@ class App extends Component {
     this.setState({emails: emails})
   }
 
+  handleBulk = () => {
+    let emails = this.state.emails;
+    if(messages.every(isSelected)) {
+      message.selected = false;
+      return message
+    }
+    emails = emails.map(email => {
+      email.selected = true;
+      return email;
+    })
+    this.setState({emails: emails})
+  }
+
   render() {
     return (
       <div className="App">
         <div className="toolbar-container">
-          <Toolbar />
+          <Toolbar handleBulk={this.handleBulk}/>
         </div>
         <div className="message-container">
           <Messages emails={this.state.emails} handleStar={this.handleStar} handleCheckbox={this.handleCheckbox}/>
@@ -101,6 +113,10 @@ class App extends Component {
       </div>
     );
   }
+}
+
+function isSelected(email) {
+  return email.selected
 }
 
 export default App;
