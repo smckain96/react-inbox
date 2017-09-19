@@ -77,7 +77,7 @@ class App extends Component {
     this.setState({emails: emails})
   }
 
-  handleCheckbox = () => {
+  handleCheckbox = (id) => {
     let emails = this.state.emails;
     emails = emails.map(email => {
       if(email.id === id) {
@@ -90,9 +90,8 @@ class App extends Component {
 
   handleBulk = () => {
     let emails = this.state.emails;
-    if(messages.every(isSelected)) {
-      message.selected = false;
-      return message
+    if(emails.every(isSelected)) {
+      emails.selected = false;
     }
     emails = emails.map(email => {
       email.selected = true;
@@ -108,7 +107,7 @@ class App extends Component {
           <Toolbar handleBulk={this.handleBulk}/>
         </div>
         <div className="message-container">
-          <Messages emails={this.state.emails} handleStar={this.handleStar} handleCheckbox={this.handleCheckbox}/>
+          <Messages emails={this.state.emails} handleStar={this.handleStar} handleCheckbox={this.handleCheckbox} starHandler={this.handleStar}/>
         </div>
       </div>
     );

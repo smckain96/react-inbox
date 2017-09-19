@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import './App.css';
 import Messages from './Messages'
 
-const Message = ({email}) => {
-  starHandler = () => {
-    this.props.handleStar(this.props.email.id)
-  }
+const Message = () => {
+//   starHandler = () => {
+//     this.props.handleStar(this.props.email.id)
+//   }
 
-  checkHandler = () => {
-    this.props.handleCheckbox(this.props.email.id)
-  }
+  // checkHandler = () => {
+  //   this.props.handleCheckbox(this.props.email.id)
+  // }
 
   let subject, read, starred, selected, labels, id;
 
@@ -25,12 +25,12 @@ const Message = ({email}) => {
         <div className="row message unread">
         <div className="col-xs-1">
         <div className="row">
-        <div className="col-xs-2" checked={this.checkHandler}>
+        <div className="col-xs-2" checked={this.props.handleCheckbox(this.props.email.id)}>
           {selected ? <input type="checkbox" checked/> : <input type="checkbox"/>}/>}
 
       </div>
       <div className="col-xs-2">
-        <i className={starred ? "star fa fa-star" : "star-fa fa-star-o"} onClick={this.starHandler}></i>
+        <i className={starred ? "star fa fa-star" : "star-fa fa-star-o"} onClick={this.props.handleStar(this.props.email.id)}></i>
       </div>
     </div>
   </div>
