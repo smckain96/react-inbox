@@ -6,10 +6,9 @@ class Messages extends Component {
   render() {
     const message = this.props.emails.map((email, i) =>{
       console.log(email)
-      return <Message email={email}/>
+      return <Message key={i} email={email} handleStar={this.props.handleStar} handleCheckbox = {this.handleCheckbox}/>
       }
     )
-
     return (
       <div>{message}</div>
     );

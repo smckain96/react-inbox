@@ -67,6 +67,28 @@ class App extends Component {
   }
 ]
   }
+  handleStar = (id) => {
+    let emails = this.state.emails;
+    emails = emails.map(email => {
+      if(email.id === id) {
+        email.starred = !email.starred
+      }
+      return email;
+    })
+    this.setState({emails: emails})
+  }
+
+  handleCheckbox = () => {
+    let emails = this.state.emails;
+    emails = emails.map(email => {
+      if(email.id === id) {
+        email.selected = email.selected ? false : true
+      }
+      return email;
+    })
+    this.setState({emails: emails})
+  }
+
   render() {
     return (
       <div className="App">
@@ -74,7 +96,7 @@ class App extends Component {
           <Toolbar />
         </div>
         <div className="message-container">
-          <Messages emails={this.state.emails}/>
+          <Messages emails={this.state.emails} handleStar={this.handleStar} handleCheckbox={this.handleCheckbox}/>
         </div>
       </div>
     );

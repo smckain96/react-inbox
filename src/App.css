@@ -23,6 +23,10 @@
   to { transform: rotate(360deg); }
 }
 
+.single-message-container {
+  width:100%;
+}
+
 .message {
   margin-left: 0px;
   padding-top: 8px;
