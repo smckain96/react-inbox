@@ -107,7 +107,7 @@ class App extends Component {
           <Toolbar handleBulk={this.handleBulk}/>
         </div>
         <div className="message-container">
-          <Messages emails={this.state.emails} handleStar={this.handleStar} handleCheckbox={this.handleCheckbox} starHandler={this.handleStar}/>
+            <Messages emails={this.state.emails} handleStar={this.handleStar} handleCheckbox={this.handleCheckbox} handleBulk = {this.handleBulk}/>
         </div>
       </div>
     );

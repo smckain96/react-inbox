@@ -3,10 +3,10 @@ import './App.css';
 import Message from'./Message';
 
 class Messages extends Component {
-  render() {
+  render(props) {
+    console.log(this.props)
     const message = this.props.emails.map((email, i) =>{
-      console.log(email)
-      return <Message key={i} email={email} handleStar={this.props.handleStar} handleCheckbox = {this.props.handleCheckbox} starHandler={this.props.handleStar}/>
+      return <Message key={i} email={email} handleStar={this.props.handleStar} handleCheckbox = {this.props.handleCheckbox}/>
       }
     )
     return (
