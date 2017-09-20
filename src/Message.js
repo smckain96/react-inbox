@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import Messages from './Messages'
 
 const Message = (props) => {
